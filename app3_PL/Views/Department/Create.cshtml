@@ -1,0 +1,32 @@
+﻿@model DepartmentViewModel
+
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create Page</h1>
+<br />
+<br />
+
+<div asp-validation-summary="All" class="alert alert-danger"></div>
+
+<form asp-action="Create" enctype="multipart/form-data">
+   <div>
+
+        <partial name="partialViews/EditCreateDepartment" model="Model" />
+   
+      <br />
+
+      <input type="submit"  value="Create" class="btn btn-primary"/>
+      <a asp-action="Index" class="btn btn-light">Back To List</a>
+
+   </div>    
+</form>
+
+@section hamada{
+
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+}

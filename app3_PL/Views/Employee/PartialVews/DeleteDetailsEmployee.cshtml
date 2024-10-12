@@ -1,0 +1,68 @@
+﻿@model EmployeeViewModel
+
+
+@{
+
+    var departments = new SelectList(ViewData["departments"] as IEnumerable<Department>, nameof(Department.Id), nameof(Department.Name));
+
+}
+
+
+<div class=" form-group">
+    <label asp-for="Name" class="col-form-label">Name</label>
+    <input asp-for="Name" class="form-control" readonly />
+    <span asp-validation-for="Name" class=" text-danger"></span>
+</div>
+<div class=" form-group">
+    <label asp-for="Age" class="col-form-label">Age</label>
+    <input asp-for="Age" class="form-control" readonly />
+    <span asp-validation-for="Age" class=" text-danger"></span>
+</div>
+<div class=" form-group">
+    <label asp-for="PhoneNumber" class="col-form-label">PhoneNumber</label>
+    <input asp-for="PhoneNumber" class="form-control" readonly />
+    <span asp-validation-for="PhoneNumber" class=" text-danger"></span>
+</div>
+
+<div class=" form-group">
+    <label asp-for="Email" class="col-form-label">Email</label>
+    <input asp-for="Email" class="form-control" readonly />
+    <span asp-validation-for="Email" class=" text-danger"></span>
+
+</div>
+<div class=" form-group">
+    <label asp-for="Salary" class="col-form-label">Salary</label>
+    <input asp-for="Salary" class="form-control" readonly />
+    <span asp-validation-for="Salary" class=" text-danger"></span>
+</div>
+<div class=" form-group">
+    <label asp-for="IsActive" class="form-check">IsActive</label>
+    <input asp-for="IsActive" class="form-check" readonly />
+    <span asp-validation-for="IsActive" class=" text-danger"></span>
+</div>
+<div class=" form-group">
+    <label asp-for="Address" class="col-form-label">Address</label>
+    <input asp-for="Address" class="form-control" readonly />
+    <span asp-validation-for="Address" class=" text-danger"></span>
+</div>
+<div class=" form-group">
+    <label asp-for="HireDate" class="col-form-label">HireDate</label>
+    <input asp-for="HireDate" class="form-control" readonly />
+    <span asp-validation-for="HireDate" class=" text-danger"></span>
+</div>
+<div class=" form-group">
+    <label asp-for="workfor" class="col-form-label"></label>
+
+    <select asp-for="workforId" asp-items="departments" class=" form form-control" readonly>
+       
+    </select>
+
+    <br />
+    <div class=" form-group">
+        <label asp-for="Image" class="col-form-label"></label>
+        <input asp-for="ImageName" />
+    </div>
+    <br />
+
+
+</div>

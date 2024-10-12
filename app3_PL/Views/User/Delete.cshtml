@@ -1,0 +1,23 @@
+﻿@model UserViewModel
+
+@{
+    ViewData["Title"] = "Delete";
+    
+}
+
+<h3>ِAre you want to Delete this Employee?</h3>
+<br />
+<br />
+<form asp-action="Delete"   method="post" enctype="multipart/form-data">
+
+
+    <partial name="PartialVews/DeleteDetails" model="Model" />
+
+
+    <input type="submit" value="Confirm" asp-route-id="@Model.Id" class="btn btn-warning">
+        <a asp-action="Index" class="btn btn-light">Cancel</a>
+
+
+</form>
+
+  
