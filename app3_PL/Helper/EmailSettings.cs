@@ -20,10 +20,11 @@ namespace app3.PL.Helper
 			client.EnableSsl = true; // عشان يشفر البورت ده ال 587 بس مش هيتشفر لاني مش معايا شهاده
 
 
-			client.Credentials = new NetworkCredential("mohammedatta095@gmail.com", "ecnqvfkiqraxoorz");
+			//client.Credentials = new NetworkCredential("mohammedatta095@gmail.com", "ecnqvfkiqraxoorz");
+			client.Credentials = new NetworkCredential("medohathout55@gmail.com", "fhkhgsgdmaidbtvn");
+			
 
-
-			client.Send("mohammedatta095@gmail.com", email.To, email.subject, email.body);
+			client.Send("medohathout55@gmail.com", email.To, email.subject, email.body);
 
 		}
 
