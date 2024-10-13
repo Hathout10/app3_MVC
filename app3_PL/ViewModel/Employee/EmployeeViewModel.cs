@@ -17,8 +17,7 @@ namespace app3.PL.ViewModel.Employee
         [Required]
         [EmailAddress]
         public string Email { get; set; }
-        [RegularExpression(@"^\d+\s[A-z]+\s[A-z]+,\s[A-z]+\s\d{5}$",
-            ErrorMessage = "Please enter a valid address.")]
+      
         public string Address { get; set; }
         [RegularExpression(@"^(\+20|0020|0)?1[0125]\d{8}$",
             ErrorMessage = "Please enter a valid Egyptian phone number.")]

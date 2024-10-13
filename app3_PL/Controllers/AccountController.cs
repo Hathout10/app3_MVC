@@ -136,7 +136,8 @@ namespace app3.PL.Controllers
 		#endregion
 
 
-		#region forgetPassword
+		#region Forget Password
+
 		[HttpGet]
 		public IActionResult ForgetPassword()
 		{
@@ -148,17 +149,20 @@ namespace app3.PL.Controllers
 		{
 			if (ModelState.IsValid)
 			{
-				var result = await _userManager.FindByEmailAsync(model.Email);
-				if (result is not null)
+				var user = await _userManager.FindByEmailAsync(model.Email);
+
+				if (user is not null)
 				{
 					//Create Token
-					var token = await _userManager.GeneratePasswordResetTokenAsync(result);
 
-					//Create Reset password Url
-					var url = Url.Action("ResetPassword", "Account", new { email = model.Email, Token = token }, Request.Scheme);
+					var token = await _userManager.GeneratePasswordResetTokenAsync(user);
 
+					//Create Reset Password URL
+
+					var url = Url.Action("ResetPassword", "Account", new { Email = model.Email, token = token }, Request.Scheme /*--> الموجود default اللي هو ال launchSettings بتاعك من ال Url بتجيب شكل ال */);
 
 					//Create Email
+
 					var email = new Email()
 					{
 						To = model.Email,
@@ -166,26 +170,25 @@ namespace app3.PL.Controllers
 						body = url
 					};
 
-					//send email
 
-					//await EmailSettings.SendEmailAsync(email);
+					//Send Email
+
 					EmailSettings.SendEmail(email);
-					return RedirectToAction("CheckyourInbox");
+
+					return RedirectToAction(nameof(CheckyourInbox));
 
 				}
-				ModelState.AddModelError(string.Empty, "invalid operation , Pls Try Again !");
-
+				ModelState.AddModelError(string.Empty, "Invalid Operation , Please Try Agin !!");
 			}
-			return View("ForgetPassword", model);
+			return View(model);
 		}
-
 		[HttpGet]
 		public IActionResult CheckyourInbox()
 		{
 			return View();
 		}
-
 		#endregion
+
 
 		#region ResetPassword
 
